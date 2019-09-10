@@ -1,0 +1,17 @@
+# import Node from "base.graphql"
+
+type Catalog {
+  id: ID!
+  userId: ID
+  productList: ProductList
+}
+
+type ProductList {
+  products: [Product]!
+}
+
+type Product implements Node {
+  id: ID!
+  name: String
+  brand: String
+}

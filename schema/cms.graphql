@@ -1,0 +1,28 @@
+# import Node, JSON from "base.graphql"
+
+type Cms {
+  info: Info
+  grid: Grid!
+}
+
+type Info implements Node {
+  id: ID!
+  title: String!
+  metas: [JSON]
+  links: [JSON]
+}
+
+type Grid implements Node {
+    id: ID!
+    cells: [Cell]!
+    style: JSON
+}
+
+type Cell {
+    component: Component
+}
+
+type Component {
+    name: String!
+    props: JSON
+}

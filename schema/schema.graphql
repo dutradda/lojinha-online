@@ -1,0 +1,28 @@
+# import Catalog, Product from "catalog.graphql"
+# import Cms from "cms.graphql"
+# import User from "user.graphql"
+
+type Query {
+  viewer: Viewer!
+  node(id: ID!): Node
+}
+
+type Mutation {
+  setTitle(title: String): String
+  setUser(uniqueId: ID!): User
+  addToBasket(
+    userId: ID!
+    productId: ID!
+  ): Product
+  removeFromBasket(
+    userId: ID!
+    index: Int!
+  ): Boolean
+}
+
+type Viewer {
+  id: ID!
+  catalog(c1: String, c2: String, c3: String, userId: ID): Catalog
+  cms(c1: String, c2: String, c3: String): Cms
+  user(id: ID!): User
+}

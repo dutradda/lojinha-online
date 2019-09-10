@@ -1,0 +1,14 @@
+# import Node from "base.graphql"
+# import Product from "catalog.graphql"
+
+type User implements Node {
+    id: ID!
+    uniqueId: ID!
+    basket: Basket
+}
+
+type Basket implements Node {
+    id: ID!
+    userId: ID!
+    products: [Product]
+}

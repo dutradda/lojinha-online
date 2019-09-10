@@ -1,0 +1,7 @@
+
+/dist/**
+/coverage/**
+/tmp/**
+!.eslintrc.js
+server-prod.js
+server-node.js

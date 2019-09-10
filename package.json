@@ -1,0 +1,37 @@
+{
+  "name": "lojinha-online-app",
+  "version": "0.1.0",
+  "scripts": {
+    "predev": "npm run relay",
+    "dev": "node server.js",
+    "build": "next build",
+    "prestart": "npm run build",
+    "start": "NODE_ENV=production node server.js",
+    "schema": "echo \"console.log(require('graphql-import').importSchema('schema/schema.graphql'))\" | node > schema/compiled-schema.graphql",
+    "prerelay": "npm run schema",
+    "relay": "relay-compiler --src ./ --exclude '**/.next/**' '**/node_modules/**' '**/test/**'  '**/__generated__/**' '**/schema/**' --schema ./schema/compiled-schema.graphql --verbose"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "dotenv-webpack": "^1.5.4",
+    "express-graphql": "^0.6.12",
+    "fbgrid-spec-react": "^0.4.0",
+    "graphql": "^0.13.2",
+    "graphql-import": "^0.6.0",
+    "graphql-type-json": "^0.2.1",
+    "isomorphic-unfetch": "^2.0.0",
+    "next": "latest",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-relay": "^1.5.0",
+    "store": "^2.0.12"
+  },
+  "devDependencies": {
+    "babel-plugin-relay": "^1.4.1",
+    "graphcool": "^1.2.1",
+    "graphql-cli": "^1.0.0-beta.4",
+    "relay-compiler": "^1.5.0"
+  }
+}
